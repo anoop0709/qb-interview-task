@@ -156,7 +156,8 @@ function App() {
 
 			<footer className="app-footer">
 				<p>
-					{IS_MOCK_DATA ? (
+				{/* Bug fix: IS_MOCK_DATA was not defined. Changed to isMockData which is defined at the top of the file. */}
+				{isMockData ? (
 						<span className="demo-badge">Demo Mode - Using Mock Data</span>
 					) : (
 						<span>Connected to {brand.toUpperCase()} API</span>
