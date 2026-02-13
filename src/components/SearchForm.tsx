@@ -13,23 +13,30 @@ export const SearchForm = ({ onSearch, isLoading, aggregations }: SearchFormProp
 	const [level, setLevel] = useState("");
 	const [tier, setTier] = useState("");
 
-	const handleSubmit = (e: FormEvent) => {
-		e.preventDefault();
-		onSearch({
-			subject: subject || undefined,
-			level: level || undefined,
-			tier: tier || undefined,
-			limit: 20,
-			offset: 0,
-		});
-	};
+	// State for free-text search
+	const [q, setQ] = useState("");
 
-	const handleReset = () => {
-		setSubject("");
-		setLevel("");
-		setTier("");
-		onSearch({ limit: 20, offset: 0 });
-	};
+
+		const handleSubmit = (e: FormEvent) => {
+			e.preventDefault();
+			onSearch({
+				subject: subject || undefined,
+				level: level || undefined,
+				tier: tier || undefined,
+				q: q || undefined,
+				limit: 20,
+				offset: 0,
+			});
+		};
+
+
+		const handleReset = () => {
+			setSubject("");
+			setLevel("");
+			setTier("");
+			setQ(""); // Clear free-text search
+			onSearch({ limit: 20, offset: 0 });
+		};
 
 	return (
 		<form className="search-form" onSubmit={handleSubmit}>
@@ -68,6 +75,19 @@ export const SearchForm = ({ onSearch, isLoading, aggregations }: SearchFormProp
 							</option>
 						))}
 					</select>
+				</div>
+
+				{/* Free-text search input */}
+				<div className="filter-group">
+					<label htmlFor="q">Keyword</label>
+					<input
+						id="q"
+						type="text"
+						placeholder="Search by keyword..."
+						value={q}
+						onChange={(e) => setQ(e.target.value)}
+						autoComplete="off"
+					/>
 				</div>
 
 				<div className="filter-actions">
