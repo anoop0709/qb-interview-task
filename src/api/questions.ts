@@ -105,3 +105,24 @@ export const checkHealth = async (brand: Brand): Promise<{ status: string }> => 
 
 	return response.json();
 };
+
+/**
+ * Delete a question by ID
+ */
+export const deleteQuestion = async (brand: Brand, questionId: string): Promise<{ message: string }> => {
+	const baseUrl = getApiBaseUrl(brand);
+	const url = `${baseUrl}/questions/${questionId}`;
+
+	const response = await fetch(url, {
+		method: "DELETE",
+		headers: {
+			"Content-Type": "application/json",
+		},
+	});
+
+	if (!response.ok) {
+		throw new Error(`Failed to delete question: ${response.statusText}`);
+	}
+
+	return response.json();
+};
