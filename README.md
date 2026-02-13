@@ -2,9 +2,9 @@
 
 **Stack:** React, TypeScript, CSS
 
----
-
 ## Getting Started
+
+Clone this repository into your own workspace. Please organise your work by task, commiting each task with a relevent commit message as you progress.
 
 ```bash
 npm install
@@ -16,6 +16,12 @@ The app will start on [http://localhost:3000](http://localhost:3000). It uses mo
 **Tests are provided** — run `npm test` to check your progress. All tests should pass when you have completed the tasks (and correctly fail until you do).
 
 Take a few minutes to explore the running app and browse the code in `src/` before starting.
+
+---
+
+## Submission
+
+Once you have completed the work. Push your work to your own repository and email a link to <hr@wjec.co.uk> for submission.
 
 ---
 
