@@ -32,6 +32,7 @@ export interface SearchParams {
 	tags?: string;
 	series?: string;
 	paperCode?: string;
+	q?: string; // Free-text search query
 	limit?: number;
 	offset?: number;
 }
